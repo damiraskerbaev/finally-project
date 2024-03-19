@@ -4,7 +4,10 @@ DEBUG = False
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'production.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'damirhotelapi$default',
+        'USER': 'damirhotelapi',
+        'PASSWORD': 'DaMiR2810',
+        'HOST': 'damirhotelapi.mysql.pythonanywhere-services.com'
     }
 }
