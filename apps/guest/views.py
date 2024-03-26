@@ -25,7 +25,7 @@ def my_booking(request):
 class SignupView(CreateView):
     form_class = SignupForm
     template_name = 'registration/signup.html'
-    succes_url = reverse_lazy('login')
+    success_url = reverse_lazy('signup')
     context_object_name = 'signup'
 
 
