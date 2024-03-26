@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+    Rooms
+{% endblock title %}
+
+{% block content %}
+
+    {% for room in rooms %}
+
+        <div>
+            <img src="{{ room.image.url }}" alt="">
+            <h1>Hotel name: {{ room.hotel }}</h1>
+            <h1>Number room: {{ room.number }}</h1>
+            <h1>Capacity: {{ room.capacity }}</h1>
+            <h3>{% if room.is_used %}
+                <p>Used: YES</p>
+                {% else %}
+                <p>Used: NO</p>
+                {% endif %}
+            </h3>
+            <h2>Description: {{ room.description }}</h2>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

@@ -6,5 +6,5 @@ from .models import Guest
 
 class GuestAdmin(ModelAdmin):
 
-    list_display = ('id', 'first_name', 'last_name')
-    list_display_links = ('id', 'first_name', 'last_name')
+    list_display = ('id', 'username')
+    list_display_links = ('id', 'username')

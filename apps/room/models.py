@@ -31,6 +31,11 @@ class Room(Model):
         blank=True
     )
 
+    image = ImageField(
+        'Image of the room',
+        upload_to='rooms-image/%Y/%m/%d'
+    )
+
     def __str__(self):
         return f'{self.number}'
     

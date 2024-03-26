@@ -13,7 +13,11 @@ urlpatterns = [
     path('api/dj-rest-auth/', include('dj_rest_auth.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/schema/redoc/', SpectacularRedocView.as_view(), name='redoc'),
-    path('api/schema/swagger/', SpectacularSwaggerView.as_view(), name='swagger')
+    path('api/schema/swagger/', SpectacularSwaggerView.as_view(), name='swagger'),
+
+    path('', include('apps.hotel.urls')),
+    path('', include('apps.room.urls')),
+    path('',include('apps.guest.urls'))
 ]
 
 urlpatterns += static(

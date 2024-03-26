@@ -1,16 +1,7 @@
 from django.db.models import *
+from django.contrib.auth.models import AbstractUser
 
-class Guest(Model):
-    first_name = CharField(
-        'First name',
-        max_length=64
-    )
-
-    last_name = CharField(
-        'Last name',
-        max_length=64
-    )
-
+class Guest(AbstractUser):
     email = EmailField(
         'Email'
     )
@@ -26,7 +17,7 @@ class Guest(Model):
     )
 
     def __str__(self):
-        return f'{self.first_name}'
+        return f'{self.username}'
     
     class Meta:
         verbose_name = 'Guest'
