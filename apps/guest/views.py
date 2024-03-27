@@ -7,6 +7,9 @@ from ..booking.models import Booking
 from django.urls import reverse_lazy
 from .forms import SignupForm
 from django.views.generic import CreateView
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login
+from django.shortcuts import redirect
 
 class GuestViewSet(ModelViewSet):
     queryset = Guest.objects.all()
@@ -26,8 +29,16 @@ class SignupView(CreateView):
     form_class = SignupForm
     template_name = 'registration/signup.html'
     success_url = reverse_lazy('signup')
-    context_object_name = 'signup'
+    context_object_name = 'LoginPage'
 
 
 def LoginPage(request):
-    return render(request, 'registration/login.html')
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home_page')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'registration/login.html', {'form': form})
