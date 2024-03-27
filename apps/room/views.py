@@ -14,4 +14,4 @@ def room_list(request):
     context = {
         'rooms': rooms
     }
-    return render(request, 'room/room_list.html')
+    return render(request, 'room/room_list.html', context=context)

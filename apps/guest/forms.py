@@ -13,14 +13,14 @@ class SignupForm(UserCreationForm):
             'phone_number',
             'email',
             'passport_serie',
-            'password1', 
-            'password2'
+            'password'
         ]
+
 
     class LoginForm(AuthenticationForm):
         class Meta:
             model = Guest
             fields = [
                 'username',
-                'password1'
+                'password'
             ]
